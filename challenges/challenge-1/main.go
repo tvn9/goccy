@@ -28,22 +28,20 @@ func main() {
 	// printMessage(), and main().
 
 	msg = "Hello, world!"
+	fmt.Println(msg)
 
-	wg.Add(1)
-	go updateMessage("Hello, universe!")
+	var str []string
+
+	str1 := ("Hello, universe!")
+	str2 := ("Hello, cosmos!")
+	str3 := ("Hello, world!")
+
+	str = append(str, str1, str2, str3)
+
+	wg.Add(len(str))
+	for i, s := range str {
+		updateMessage(fmt.Sprintf("%d %s", i, s))
+		printMessage()
+	}
 	wg.Wait()
-
-	printMessage()
-
-	wg.Add(1)
-	go updateMessage("Hello, cosmos!")
-	wg.Wait()
-
-	printMessage()
-
-	wg.Add(1)
-	go updateMessage("Hello, world!")
-	wg.Wait()
-
-	printMessage()
 }
