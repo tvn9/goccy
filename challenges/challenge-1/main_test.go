@@ -28,5 +28,4 @@ func Test_updateMessage(t *testing.T) {
 	if !strings.Contains(output, "Hello, cosmos!") {
 		t.Errorf("expected %s, but go %s\n", result, output)
 	}
-
 }
