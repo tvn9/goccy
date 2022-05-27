@@ -4,20 +4,17 @@ import (
 	"io"
 	"os"
 	"strings"
-	"sync"
 	"testing"
 )
 
-func Test_updateMessage(t *testing.T) {
+func Test_printMessage(t *testing.T) {
 	stdOut := os.Stdout
 
 	r, w, _ := os.Pipe()
 	os.Stdout = w
 
-	var wg sync.WaitGroup
-	wg.Add(1)
-	go updateMessage("Hello, cosmos!")
-	wg.Wait()
+	msg = "Hello, cosmos!"
+	printMessage()
 
 	_ = w.Close()
 
@@ -27,5 +24,17 @@ func Test_updateMessage(t *testing.T) {
 	os.Stdout = stdOut
 	if !strings.Contains(output, "Hello, cosmos!") {
 		t.Errorf("expected %s, but go %s\n", result, output)
+	}
+}
+
+func Test_updateMesage(t *testing.T) {
+	wg.Add(1)
+
+	go updateMessage("Hello, cosmos!")
+
+	wg.Wait()
+
+	if msg != "Hello, cosmos!" {
+		t.Errorf("expected %s, but it is not found\n", msg)
 	}
 }
