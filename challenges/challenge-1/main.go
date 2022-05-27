@@ -11,6 +11,8 @@ func updateMessage(s string) {
 	defer wg.Done()
 
 	msg = s
+
+	printMessage()
 }
 
 func printMessage() {
@@ -28,7 +30,6 @@ func main() {
 	// printMessage(), and main().
 
 	msg = "Hello, world!"
-	fmt.Println(msg)
 
 	var str []string
 
@@ -40,8 +41,7 @@ func main() {
 
 	wg.Add(len(str))
 	for i, s := range str {
-		updateMessage(fmt.Sprintf("%d %s", i, s))
-		printMessage()
+		go updateMessage(fmt.Sprintf("Test %d %s", i, s))
 	}
 	wg.Wait()
 }
