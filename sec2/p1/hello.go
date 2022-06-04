@@ -10,8 +10,7 @@ func printSomething(s string) {
 }
 
 func main() {
-
-	// This is only an intro to go example, not a productio way of
+	// This is only an intro to go example, not a production way of
 	// coding real go concurrency.
 	go printSomething("Print something to the screen!")
 

@@ -11,7 +11,7 @@ func printSomething(s string, wg *sync.WaitGroup) {
 }
 
 func main() {
-	// setup a wait group
+	// set up a wait group
 	var wg sync.WaitGroup
 	// create a slice
 	months := []string{"Genuary", "Febuary", "March", "April", "May", "June",
