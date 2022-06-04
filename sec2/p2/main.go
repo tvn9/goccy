@@ -14,7 +14,7 @@ func main() {
 	// set up a wait group
 	var wg sync.WaitGroup
 	// create a slice
-	months := []string{"Genuary", "Febuary", "March", "April", "May", "June",
+	months := []string{"January", "February", "March", "April", "May", "June",
 		"July", "August", "September", "October", "November", "December"}
 
 	wg.Add(len(months))
@@ -25,5 +25,4 @@ func main() {
 
 	wg.Add(1)
 	printSomething("This is the second thing to be printed!", &wg)
-
 }

@@ -1,2 +1,3 @@
 # Go Concurrency
-Codig Go Concurrency Features
+Coding Go Concurrency Features
+
