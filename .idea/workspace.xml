@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4759220a-f79f-4fd9-a98c-d7f89469da86" name="Changes" comment="check in sec3 p5, p6 code">
-      <change afterPath="$PROJECT_DIR$/sec4/p6/main.go" afterDir="false" />
+    <list default="true" id="4759220a-f79f-4fd9-a98c-d7f89469da86" name="Changes" comment="checking in sec4 p6 p7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +46,9 @@
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
     "last_opened_file_path": "/Users/tn",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -70,7 +71,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="check in sec3 p5, p6 code" />
-    <option name="LAST_COMMIT_MESSAGE" value="check in sec3 p5, p6 code" />
+    <MESSAGE value="checking in sec4 p6 p7" />
+    <option name="LAST_COMMIT_MESSAGE" value="checking in sec4 p6 p7" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
