@@ -1,3 +1,3 @@
-module github.com/tvn/goccy
+module goccy
 
 go 1.18
