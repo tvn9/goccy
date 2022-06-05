@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4759220a-f79f-4fd9-a98c-d7f89469da86" name="Changes" comment="checking in sec4 p6 p7">
+    <list default="true" id="4759220a-f79f-4fd9-a98c-d7f89469da86" name="Changes" comment="checking in sec4 p7 with corrected race problem">
+      <change afterPath="$PROJECT_DIR$/sec4/p7/main_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +22,12 @@
   </component>
   <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -72,7 +79,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="check in sec3 p5, p6 code" />
     <MESSAGE value="checking in sec4 p6 p7" />
-    <option name="LAST_COMMIT_MESSAGE" value="checking in sec4 p6 p7" />
+    <MESSAGE value="checking in sec4 p7 with corrected race problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="checking in sec4 p7 with corrected race problem" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
