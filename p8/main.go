@@ -43,7 +43,6 @@ func diningProblem(philosopher string, myTurn *sync.Mutex) {
 
 		fmt.Printf("%q is thinking.\n", philosopher)
 		time.Sleep(thinkTime)
-
 	}
 
 	fmt.Printf("%q finishs eating satified.\n", philosopher)
