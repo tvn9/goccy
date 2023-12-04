@@ -41,7 +41,7 @@ func main() {
 
 	wg.Add(len(str))
 	for i, s := range str {
-		go updateMessage(fmt.Sprintf("Test %d %s", i, s))
+		updateMessage(fmt.Sprintf("Test %d %s", i, s))
 	}
 	wg.Wait()
 }

@@ -12,7 +12,7 @@ func printSomething(s string) {
 func main() {
 	// This is only an intro to go concurrency, not a production way of
 	// coding real go concurrency.
-	go printSomething("Print something to the screen!")
+	go printSomething("The first thing to be printed on the screen!")
 
 	time.Sleep(1 * time.Second) // Bad way of implement goroutines
 

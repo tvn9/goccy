@@ -19,7 +19,7 @@ func main() {
 
 	wg.Add(len(months))
 	for i, x := range months {
-		go printSomething(fmt.Sprintf("%d: %s", i, x), &wg)
+		go printSomething(fmt.Sprintf("%d:\t%s", i, x), &wg)
 	}
 	wg.Wait()
 

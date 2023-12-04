@@ -18,8 +18,8 @@ func Test_printSomething(t *testing.T) {
 	wg.Add(1)
 	go printSomething("December", &wg)
 	wg.Wait()
-
 	_ = w.Close()
+
 	result, _ := io.ReadAll(r)
 	output := string(result)
 
