@@ -22,9 +22,9 @@ var wg sync.WaitGroup
 func main() {
 	msgs := []string{}
 
-	str0 := "Hello, world!"
-	str1 := "Hello, universe!"
-	str2 := "Hello, cosmos!"
+	str0 := "Hello, universe!"
+	str1 := "Hello, cosmos!"
+	str2 := "Hello, world!"
 
 	msgs = append(msgs, str1, str2, str0)
 
