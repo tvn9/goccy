@@ -20,19 +20,19 @@ func printMessage() {
 var wg sync.WaitGroup
 
 func main() {
-	msgs := []string{}
+	var msgs []string
 
 	str0 := "Hello, universe!"
 	str1 := "Hello, cosmos!"
 	str2 := "Hello, world!"
 
-	msgs = append(msgs, str1, str2, str0)
+	msgs = append(msgs, str0, str1, str2)
 
-	wg.Add(len(msgs))
 	for _, m := range msgs {
-		go updateMessage(m, &wg)
+		wg.Add(1)
+		updateMessage(m, &wg)
+		wg.Wait()
 	}
-	wg.Wait()
 
 }
 
