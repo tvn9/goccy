@@ -11,11 +11,10 @@ type Income struct {
 	Amount int
 }
 
+// define a wait group
 var wg sync.WaitGroup
 
 func main() {
-
-	// define a wait group
 
 	// variable for bank balance
 	var bankBalance int
