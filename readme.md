@@ -2,7 +2,7 @@
 
 A project to practice Go Concerrency, the goal is to learn and master Go Concurrency features.  
 
-## Resouces Use 
+## Resouces
 
 Books: The Go Programming Language - Alan A.A. Donovan - Brian W. Kerninghan  
 Online Cources: Working with Concurrency in Go 

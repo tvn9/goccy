@@ -23,7 +23,7 @@ func main() {
 	// print out starting values
 	fmt.Printf("Initial account balance: $%d.00\n", bankBalance)
 
-	// define weely revenue
+	// define weekly revenue
 	incomes := []Income{
 		{Source: "Main job", Amount: 500},
 		{Source: "Gifts", Amount: 10},
