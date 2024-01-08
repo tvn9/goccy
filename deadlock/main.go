@@ -1,5 +1,9 @@
 package main
 
+// Deadlock example
+// A deadlock program is the result of all concurrent process are waiting on one another.
+// in this state, the program will never recover without outside intervention.
+
 import (
 	"fmt"
 	"sync"
