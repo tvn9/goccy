@@ -69,10 +69,9 @@ func pizzeria(pm *Producer) {
 	i := 0
 
 	// run forever of until we receive a quit notification
-
-	// try to make pizzas
 	for {
 		currentPizza := makePizza(i)
+		// try to make pizzas
 		if currentPizza != nil {
 			i = currentPizza.pizzaNumber
 			select {
@@ -91,9 +90,6 @@ func pizzeria(pm *Producer) {
 }
 
 func main() {
-	// seed the random number generator
-	// rand.New(time.Now().UnixNano())
-
 	// print out a message
 	color.Cyan("The Pizzeria is open for business!")
 	color.Cyan("----------------------------------")
