@@ -31,7 +31,7 @@ func main() {
 	}
 
 	var a, b value
-	wg.Add(2)
+	wg.Add(1)
 	go printSum(&a, &b)
 	go printSum(&b, &a)
 	wg.Wait()

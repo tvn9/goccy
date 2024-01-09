@@ -9,9 +9,9 @@ Books:
 - Concurrency in Go - Katherine Cox-Buday  
 - Effective Concurrency in Go - Burak Sendar  
 
-Online Cources:  
+Online Course:  
 - Working with Concurrency in Go 
-- Instructor: Trevor Sawler, Phd - Teaching at University Level   
+- Instructor: Trevor Sawler, PHD - Teaching at University Level   
 - Tools: Vim, Goland
 - Programming Languages: Go, HTML, CSS, JavaScript 
 
