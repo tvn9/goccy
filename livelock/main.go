@@ -1,7 +1,7 @@
 package main
 
-// Livelocks are programs that are actively performing concurrent operations, but these
-// operations do nothing to move the state of the program forward.
+// LiveLocks are programs that are actively performing concurrent operations,
+// but these operations do nothing to move the state of the program forward.
 
 import (
 	"bytes"
@@ -59,7 +59,7 @@ func main() {
 				return
 			}
 		}
-		fmt.Fprintf(&out, "\n%v tosses her hands up in exasperattion!", name)
+		fmt.Fprintf(&out, "\n%v tosses her hands up in exasperation!", name)
 	}
 
 	var peopleInHallway sync.WaitGroup

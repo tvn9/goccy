@@ -20,9 +20,8 @@ func main() {
 	sayYourName := func(name string) {
 		fmt.Printf("Hello, %s\n", name)
 	}
-	
-	go sayYourName("Thanh")
 
+	go sayYourName("Thanh")
 	time.Sleep(1 * time.Second)
 }
 
