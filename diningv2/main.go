@@ -46,6 +46,10 @@ func main() {
 }
 
 func dine() {
+	eatTime = 0 * time.Second
+	sleepTime = 0 * time.Second
+	thinkTime = 0 * time.Second
+
 	// wait group
 	wg := &sync.WaitGroup{}
 	wg.Add(len(philosophers))
@@ -76,29 +80,43 @@ func diningRoutine(phi Philosopher, wg *sync.WaitGroup, forks map[int]*sync.Mute
 
 	// seat the philosopher at the table
 	fmt.Printf("%s is seated at the table.\n", phi.name)
+
+	// Decrement the seated WaitGroup by one.
 	seat.Done()
 
+	// Wait until everyone is seated
 	seat.Wait()
 
 	// eat three times
 	for i := hunger; i > 0; i-- {
-		// get a lock on both forks
-		forks[phi.leftFork].Lock()
-		fmt.Printf("\t%s takes the left fork.\n", phi.name)
-		forks[phi.rightFork].Lock()
-		fmt.Printf("\t%s takes the right fork.\n", phi.name)
+		if phi.leftFork > phi.rightFork {
+			// get a lock on both forks
+			forks[phi.rightFork].Lock()
+			fmt.Printf("\t%s takes the right fork.\n", phi.name)
+			forks[phi.leftFork].Lock()
+			fmt.Printf("\t%s takes the left fork.\n", phi.name)
+		} else {
+			forks[phi.leftFork].Lock()
+			fmt.Printf("\t%s takes the left fork.\n", phi.name)
+			forks[phi.rightFork].Lock()
+			fmt.Printf("\t%s takes the right fork.\n", phi.name)
+		}
 
+		// the philosopher has both forks locked, and start eating
 		fmt.Printf("\t%s hask both forks and is eating.\n", phi.name)
 		time.Sleep(eatTime)
 
+		// the philosopher starts to think, and still has the forks
 		fmt.Printf("\t%s philosopher is thinking.\n", phi.name)
 		time.Sleep(thinkTime)
 
+		// unlock the mutexes for both forks
 		forks[phi.leftFork].Unlock()
 		forks[phi.rightFork].Unlock()
 
 		fmt.Printf("\t%s put down the forks.\n", phi.name)
 	}
+	// the philosopher has finished eating.
 	fmt.Println(phi.name, "is satisfied.")
 	fmt.Println(phi.name, "left the table.")
 }
