@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"sync"
+	"time"
 )
 
 type Account struct {
@@ -12,6 +13,7 @@ type Account struct {
 	Balance int
 }
 
+/*
 func (a *Account) Withdraw(amount int) error {
 	a.Lock()
 	defer a.Unlock()
@@ -21,6 +23,7 @@ func (a *Account) Withdraw(amount int) error {
 	a.Balance -= amount
 	return nil
 }
+*/
 
 func Transfer(from, to *Account, amount int) error {
 	from.Lock()
@@ -44,13 +47,14 @@ func main() {
 	}
 
 	go func() {
-		if err := Transfer(&acct1, &acct2, 15); err != nil {
+		if err := Transfer(&acct1, &acct2, 5); err != nil {
 			fmt.Println(err)
 		}
 	}()
 	go func() {
-		if err := Transfer(&acct2, &acct1, 15); err != nil {
+		if err := Transfer(&acct2, &acct1, 5); err != nil {
 			fmt.Println(err)
 		}
 	}()
+	time.Sleep(1 * time.Second)
 }

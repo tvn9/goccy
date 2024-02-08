@@ -17,10 +17,17 @@ type Account struct {
 
 // Transfer moves money from one account to another
 func Transfer(from, to *Account, amt int) error {
-	from.Lock()
-	defer from.Unlock()
-	to.Lock()
-	defer to.Unlock()
+	if from.ID < to.ID {
+		from.Lock()
+		defer from.Unlock()
+		to.Lock()
+		defer to.Unlock()
+	} else {
+		to.Lock()
+		defer to.Lock()
+		from.Lock()
+		defer from.Unlock()
+	}
 	if from.Balance < amt {
 		return ErrInsufficient
 	}
@@ -46,8 +53,8 @@ var ErrInsufficient = errors.New("insufficient fund")
 // main starts the application
 func main() {
 
-	acct1 := Account{Balance: 10}
-	acct2 := Account{Balance: 15}
+	acct1 := Account{Balance: 10, ID: "A"}
+	acct2 := Account{Balance: 15, ID: "B"}
 	fmt.Printf("Account 1: %d\n", acct1.Balance)
 	fmt.Printf("Account 2: %d\n", acct2.Balance)
 
