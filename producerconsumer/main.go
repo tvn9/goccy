@@ -3,10 +3,12 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"sync"
 	"time"
 )
 
-func producer(index int, done <-chan struct{}, output chan<- int) {
+func producer(index int, wg *sync.WaitGroup, done <-chan struct{}, output chan<- int) {
+	defer wg.Done()
 	for {
 		// Produce a random value
 		value := rand.Int()
@@ -22,7 +24,7 @@ func producer(index int, done <-chan struct{}, output chan<- int) {
 	}
 }
 
-func consumer(index int, input <-chan int) {
+func consumer(index int, wg *sync.WaitGroup, input <-chan int) {
 	for value := range input {
 		fmt.Printf("Consumer %d received %d\n", index, value)
 	}
@@ -31,13 +33,19 @@ func consumer(index int, input <-chan int) {
 func main() {
 	doneCh := make(chan struct{})
 	dataCh := make(chan int, 0)
+	// Define the wait group
+	producers := sync.WaitGroup{}
+	consumers := sync.WaitGroup{}
+
 	for i := 0; i < 10; i++ {
-		go producer(i, doneCh, dataCh)
+		go producer(i, &producers, doneCh, dataCh)
 	}
 	for i := 0; i < 10; i++ {
-		go consumer(i, dataCh)
+		go consumer(i, &consumers, dataCh)
 	}
 	time.Sleep(time.Second * 10)
 	close(doneCh)
-
+	producers.Wait()
+	close(dataCh)
+	consumers.Wait()
 }

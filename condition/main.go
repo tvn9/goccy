@@ -41,7 +41,7 @@ func (q *Queue) Dequeue() (int, bool) {
 	if q.len == 0 {
 		return 0, false
 	}
-	// Read the value at the rear ponter
+	// Read the value at the read ponter
 	data := q.elements[q.front]
 	// Advance the read pointer, go around in circle
 	q.front = q.elements[q.front]
