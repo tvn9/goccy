@@ -25,6 +25,7 @@ func producer(index int, wg *sync.WaitGroup, done <-chan struct{}, output chan<-
 }
 
 func consumer(index int, wg *sync.WaitGroup, input <-chan int) {
+	defer wg.Done()
 	for value := range input {
 		fmt.Printf("Consumer %d received %d\n", index, value)
 	}
