@@ -2,14 +2,18 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strings"
 )
 
-// Base channel example
+// Base send and receive channels example
 
 func shout(send <-chan string, receive chan<- string) {
 	for {
-		s := <-send
+		s, ok := <-send
+		if !ok {
+			log.Fatal("something wrong with send channel")
+		}
 		receive <- fmt.Sprintf("%s!!!", strings.ToUpper(s))
 	}
 }
@@ -37,7 +41,10 @@ func main() {
 		send <- userInput
 
 		// wait for a response
-		response := <-receive
+		response, ok := <-receive
+		if !ok {
+			log.Fatal("something wrong with receive channel.")
+		}
 
 		fmt.Println("Response:", response)
 	}
