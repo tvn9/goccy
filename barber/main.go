@@ -14,8 +14,6 @@ var timeOpen = 10 * time.Second
 
 func main() {
 
-	// send our random number generator
-
 	// print welcome message
 	fmt.Println("The Sleeping Barber Problem")
 	fmt.Println("___________________________")
