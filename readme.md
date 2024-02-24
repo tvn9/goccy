@@ -17,10 +17,11 @@ Online Course:
 
 ### Course Assignments 
 
-Installation of tools needed for this project 
+Prepare the tools needed for this project 
 
 - Install Go - Done
 - Install VsCode - Done
 - Install make 4.4.1 - Manual compile and install make for MacOS with M1 Chip
+- Install docker - Done
   
   
