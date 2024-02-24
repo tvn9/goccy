@@ -54,3 +54,42 @@ func Test_printMessage(t *testing.T) {
 	}
 
 }
+
+func Test_main(t *testing.T) {
+	msg = "Hello, World!"
+	testMsg1 := "Hello, universe!"
+	testMsg2 := "Hello, cosmos!"
+	testMsg3 := "Hello, world!"
+
+	// redirecting standard output to a variable
+	stdOut := os.Stdout
+
+	// redirecting pipe file io to r (read), w (write), ignore error
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	main()
+
+	_ = w.Close()
+
+	result, _ := io.ReadAll(r)
+	output := string(result)
+
+	os.Stdout = stdOut
+
+	if !strings.Contains(output, testMsg1) {
+		t.Errorf("expect %s, but got %s\n", result, output)
+	} else {
+		fmt.Printf("expected %s, and got %s\n", result, output)
+	}
+	if !strings.Contains(output, testMsg2) {
+		t.Errorf("expect %s, but got %s\n", result, output)
+	} else {
+		fmt.Printf("expected %s, and got %s\n", result, output)
+	}
+	if !strings.Contains(output, testMsg3) {
+		t.Errorf("expect %s, but got %s\n", result, output)
+	} else {
+		fmt.Printf("expected %s, and got %s\n", result, output)
+	}
+}
