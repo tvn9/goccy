@@ -25,7 +25,7 @@ func main() {
 	incomes := []Income{
 		{Source: "Main job", Amount: 500},
 		{Source: "Gifts", Amount: 10},
-		{Source: "Part time job", Amount: 30},
+		{Source: "Part time job", Amount: 50},
 		{Source: "Investments", Amount: 100},
 	}
 
