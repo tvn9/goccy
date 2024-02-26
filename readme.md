@@ -11,7 +11,7 @@ Books:
 
 Online Course:  
 - Working with Concurrency in Go 
-- Instructor: Trevor Sawler, PHD - Teaching at University Level   
+- Professor: Trevor Sawler, Ph.D. - Teaching at University Level   
 - Tools: Vim, Vscode
 - Programming Languages: Go, HTML, CSS, JavaScript 
 

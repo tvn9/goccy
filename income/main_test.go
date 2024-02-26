@@ -37,5 +37,4 @@ func Test_main(t *testing.T) {
 	} else {
 		fmt.Printf("Pass - expected %s, and got %s\n", yearly, output)
 	}
-
 }
