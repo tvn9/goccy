@@ -7,12 +7,13 @@ import (
 	"time"
 )
 
+// Philosopher struct holds name leftFork, and rightFork
 type Philosopher struct {
 	name                string
 	leftFork, rightFork int
 }
 
-// list of all philosophers
+// philosophers is the list of all philosophers
 var philosophers = []Philosopher{
 	{name: "Washington", leftFork: 4, rightFork: 0},
 	{name: "Adams", leftFork: 0, rightFork: 1},
@@ -23,17 +24,25 @@ var philosophers = []Philosopher{
 
 // variables for delay time
 var (
-	eatTurn   = 3 // how many time each philosopher eatTurn
-	thinkTime = (time.Millisecond * time.Duration(rand.Intn(1000)))
-	eatTime   = (time.Second * time.Duration(rand.Intn(3)))
-	sleepTime = (time.Millisecond * time.Duration(rand.Intn(1000)))
+	eatTurn   = 3 // how many times each philosopher eatTurn
+	thinkTime = time.Millisecond * time.Duration(rand.Intn(1000))
+	eatTime   = time.Second * time.Duration(rand.Intn(3))
+	sleepTime = time.Millisecond * time.Duration(rand.Intn(1000))
 )
 
+// *** challenge solution ***
+var orderMutex sync.Mutex
+var orderFinished []string
+
+// main is where the program start
 func main() {
 	// Print out a welcome message
 	fmt.Println("Dinning Philosophers Problem")
 	fmt.Println("----------------------------")
 	fmt.Println("The table is empty.")
+
+	// *** challenge solution ***
+	time.Sleep(sleepTime)
 
 	// start the meal
 	dine()
@@ -42,11 +51,11 @@ func main() {
 	fmt.Println("The table is empty.")
 
 	// Order finished
-	// fmt.Println("Order finished:")
-	// for i, phi := range orderFinished {
-	//	fmt.Printf("#%d: %s\n, i, philosopher")
-	// }
 
+	fmt.Println("Order finished:")
+	for i, phi := range orderFinished {
+		fmt.Printf("#%d: %s\n", i+1, phi)
+	}
 }
 
 func dine() {
@@ -73,12 +82,10 @@ func dine() {
 		// fire off a goroutine for the current philosopher
 		go diningProblem(philosophers[i], &wg, forks, seated)
 	}
-
 	wg.Wait()
 }
 
 func diningProblem(phi Philosopher, wg *sync.WaitGroup, forks map[int]*sync.Mutex, seated *sync.WaitGroup) {
-
 	defer wg.Done()
 
 	// seat the philosopher at the table
@@ -112,6 +119,10 @@ func diningProblem(phi Philosopher, wg *sync.WaitGroup, forks map[int]*sync.Mute
 		fmt.Printf("\t%s put down the forks.\n", phi.name)
 
 	}
+	// *** challenge solution ***
+	orderMutex.Lock()
+	orderFinished = append(orderFinished, phi.name)
+	orderMutex.Unlock()
 
 	fmt.Printf("%s is satisfying.\n", phi.name)
 	fmt.Printf("%s left the table.\n", phi.name)
