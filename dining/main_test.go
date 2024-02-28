@@ -28,3 +28,27 @@ func Test_dineRandTime(t *testing.T) {
 		}
 	}
 }
+
+func Test_dineTimeTable(t *testing.T) {
+	var randTime = []struct {
+		name  string
+		delay time.Duration
+	}{
+		{"zero delay", time.Second * 0},
+		{"quarter second delay", time.Millisecond * 250},
+		{"half second delay", time.Millisecond * 500},
+	}
+
+	for _, test := range randTime {
+		orderFinished = []string{}
+
+		eatTime = test.delay
+		sleepTime = test.delay
+		thinkTime = test.delay
+
+		dine()
+		if len(orderFinished) != 5 {
+			t.Errorf("%s, expected 5, but got %d\n", test.name, len(orderFinished))
+		}
+	}
+}
