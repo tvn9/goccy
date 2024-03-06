@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"log"
 	"sync"
+	"webappv01/data"
 
 	"github.com/alexedwards/scs/v2"
 )
@@ -14,4 +15,5 @@ type Config struct {
 	InfoLog  *log.Logger
 	ErrorLog *log.Logger
 	Wait     *sync.WaitGroup
+	Models   data.Models
 }

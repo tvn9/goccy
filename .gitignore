@@ -28,3 +28,6 @@ resources
 
 # Database data
 dbdata
+
+# Temp files
+temp
