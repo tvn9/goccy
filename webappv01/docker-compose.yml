@@ -4,7 +4,7 @@ services:
 
   #  start Postgres, and ensure that data is stored to a mounted volume
   postgres:
-    image: 'postgres:latest'
+    image: 'postgres:14.2'
     ports:
       - "5432:5432"
     restart: always
@@ -25,9 +25,9 @@ services:
       - ./dbdata/redis/:/data
 
   #  start mailhog
-  mailcow:
-    image: 'mailcow/clamd:latest'
+  mailhog:
+    image: 'mailhog/mailhog:latest'
     ports:
-      - "2500:2500"
-      - "8085:8085"
+      - "1025:1025"
+      - "8025:8025"
     restart: always
